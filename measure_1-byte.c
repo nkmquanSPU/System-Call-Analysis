@@ -17,13 +17,13 @@ int main(int argc, char **argv)
 	struct timeval end;
 	
 	/*
-	I have tried to use iterations with 100, 1000, 10000 and 15000 respectively.
-	When I run my program with iterations of 15000 multiple times,
-		the results usually have the form of 26.xxxxxx.
-	For most of the time, the result is in [26.300000, 27.000000].
-	Thus, with the iterations of 15000, the average run-time is accurate and precise.
+	I have tried to use iterations with 100, 1000, 10000, 15000 and 150000 respectively.
+	When I run my program with iterations of 150000 multiple times,
+		the results usually have the form of 3.2xxxxx.
+	For most of the time, the result is in [3.200000, 3.200000].
+	Thus, with the iterations of 150000, the average run-time is accurate and precise.
 	*/
-	int iterations = 15000;
+	int iterations = 150000;
 
 	for (int i = 1; i < iterations; i++)
 	{
@@ -44,12 +44,12 @@ int main(int argc, char **argv)
 		//measure the run-time in seconds
 		temp = (end.tv_sec * 1000000 + end.tv_usec) - (start.tv_sec * 1000000 + start.tv_usec);
 		
-		total_time += temp; //close the file
+		total_time += temp; //calculate the total run-time
 		
-		fclose(fp);
+		fclose(fp); //close the file
 	}
 	
-	//average run-tim of 50000 iterations
+	//average run-time of 150000 iterations
 	ave_time = total_time / iterations;
 
 	printf("%f seconds. \n", ave_time);
